@@ -21,6 +21,7 @@ module.exports = {
   rules: {
     'array-callback-return': 'error',
     'prefer-object-spread': 'error',
+    'no-duplicate-imports': ['error', { includeExports: true }],
     'no-unused-vars': ['error', { argsIgnorePattern: '^_' }], // allow variables that starts with _
     'import/no-unresolved': 0, // Doesn't work with TypeScript modules, see https://github.com/benmosher/eslint-plugin-import/issues/1120
     'mocha/no-mocha-arrows': 0,
