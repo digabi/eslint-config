@@ -8,7 +8,7 @@ Add the required dependencies:
 
     $ yarn add -D @digabi/eslint-config typescript-eslint/eslint-plugin @typescript-eslint/parser eslint eslint-config-prettier eslint-plugin-import eslint-plugin-mocha eslint-plugin-prettier eslint-plugin-react
     
-Modify `eslintrc.json` to use our config:
+Add or modify `.eslintrc.json` in the project root:
 
 ```json
 {
