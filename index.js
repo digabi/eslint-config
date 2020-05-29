@@ -1,38 +1,58 @@
+function hasDependency(module) {
+  try {
+    require.resolve(module)
+    return true
+  } catch (err) {
+    return false
+  }
+}
+
+const hasMocha = hasDependency('eslint-plugin-mocha')
+const hasJest = hasDependency('eslint-plugin-jest')
+const hasReact = hasDependency('eslint-plugin-react')
+
 module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:import/errors',
-    'plugin:mocha/recommended',
-    'plugin:react/recommended',
     'plugin:prettier/recommended',
-    'prettier/react'
-  ],
+    hasMocha && 'plugin:mocha/recommended',
+    hasJest && 'plugin:jest/recommended',
+    hasJest && 'plugin:jest/style',
+    hasReact && 'plugin:react/recommended',
+    hasReact && 'prettier/react'
+  ].filter(Boolean),
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module'
   },
   env: {
     browser: true,
-    mocha: true,
     node: true,
-    es2020: true
+    es2020: true,
+    ...(hasMocha && { mocha: true })
   },
-  plugins: ['mocha', 'prettier'],
+  plugins: ['prettier', hasMocha && 'mocha', hasJest && 'jest'].filter(Boolean),
   rules: {
     'array-callback-return': 'error',
     'prefer-object-spread': 'error',
     'no-duplicate-imports': ['error', { includeExports: true }],
     'no-unused-vars': ['error', { argsIgnorePattern: '^_' }], // allow variables that starts with _
     'import/no-unresolved': 0, // Doesn't work with TypeScript modules, see https://github.com/benmosher/eslint-plugin-import/issues/1120
-    'mocha/no-mocha-arrows': 0,
-    'mocha/no-setup-in-describe': 0, // This would be nice, but currently it breaks too much existing code.
-    'mocha/no-sibling-hooks': 0,
-    'react/prop-types': 0 // We don't use prop-types.
+    ...(hasMocha && {
+      'mocha/no-mocha-arrows': 0,
+      'mocha/no-setup-in-describe': 0, // This would be nice, but currently it breaks too much existing code.
+      'mocha/no-sibling-hooks': 0
+    }),
+    ...(hasJest && {
+      'jest/expect-expect': ['error', { assertFunctionNames: ['expect*'] }]
+    }),
+    ...(hasReact && {
+      'react/prop-types': 0 // We don't use prop-types.
+    })
   },
   settings: {
-    react: {
-      version: 'detect'
-    }
+    ...(hasReact && { react: { version: 'detect' } })
   },
   overrides: [
     {
@@ -46,11 +66,9 @@ module.exports = {
       ],
       parser: '@typescript-eslint/parser',
       parserOptions: {
-        ecmaVersion: 2020,
-        sourceType: 'module',
         project: './tsconfig.json'
       },
-      plugins: ['@typescript-eslint', 'mocha', 'prettier'],
+      plugins: ['@typescript-eslint'],
       rules: {
         '@typescript-eslint/explicit-function-return-type': 0,
         '@typescript-eslint/no-explicit-any': 0, // We probably should enable this, but it breaks a lot of code right now (unknown is usually the better choice).
