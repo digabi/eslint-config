@@ -15,6 +15,7 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:import/errors',
+    'plugin:promise/recommended',
     'plugin:prettier/recommended',
     hasMocha && 'plugin:mocha/recommended',
     hasJest && 'plugin:jest/recommended',
@@ -32,13 +33,17 @@ module.exports = {
     es2020: true,
     ...(hasMocha && { mocha: true })
   },
-  plugins: ['prettier', hasMocha && 'mocha', hasJest && 'jest'].filter(Boolean),
+  plugins: ['prettier', 'promise', hasMocha && 'mocha', hasJest && 'jest'].filter(Boolean),
   rules: {
     'array-callback-return': 'error',
     'prefer-object-spread': 'error',
     'no-duplicate-imports': ['error', { includeExports: true }],
     'no-unused-vars': ['error', { argsIgnorePattern: '^_' }], // allow variables that starts with _
     'import/no-unresolved': 0, // Doesn't work with TypeScript modules, see https://github.com/benmosher/eslint-plugin-import/issues/1120
+    'promise/avoid-new': 0,
+    'promise/catch-or-return': ['error', { allowFinally: true }],
+    'promise/no-callback-in-promise': 0,
+    'promise/no-nesting': 0,
     ...(hasMocha && {
       'mocha/no-mocha-arrows': 0,
       'mocha/no-setup-in-describe': 0, // This would be nice, but currently it breaks too much existing code.
