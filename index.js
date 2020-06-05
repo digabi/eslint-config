@@ -40,6 +40,10 @@ module.exports = {
     'prefer-object-spread': 'error',
     'no-duplicate-imports': ['error', { includeExports: true }],
     'no-unused-vars': ['error', { argsIgnorePattern: '^_' }], // allow variables that starts with _
+    'import/default': 0,
+    'import/named': 0,
+    'import/namespace': 0,
+    'import/no-unresolved': 0,
     'promise/avoid-new': 0,
     'promise/catch-or-return': ['error', { allowFinally: true }],
     'promise/no-callback-in-promise': 0,
@@ -75,9 +79,6 @@ module.exports = {
       },
       plugins: ['@typescript-eslint'],
       rules: {
-        'import/default': 0,
-        'import/named': 0, // https://github.com/typescript-eslint/typescript-eslint/issues/154
-        'import/no-unresolved': 0, // Doesn't work with TypeScript modules, see https://github.com/benmosher/eslint-plugin-import/issues/1120
         '@typescript-eslint/explicit-function-return-type': 0,
         '@typescript-eslint/no-explicit-any': 0, // We probably should enable this, but it breaks a lot of code right now (unknown is usually the better choice).
         '@typescript-eslint/no-non-null-assertion': 0, // We use these quite extensively when the compiler isn't smart enough.
