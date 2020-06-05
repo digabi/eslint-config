@@ -75,6 +75,7 @@ module.exports = {
       },
       plugins: ['@typescript-eslint'],
       rules: {
+        'import/default': 0,
         'import/named': 0, // https://github.com/typescript-eslint/typescript-eslint/issues/154
         'import/no-unresolved': 0, // Doesn't work with TypeScript modules, see https://github.com/benmosher/eslint-plugin-import/issues/1120
         '@typescript-eslint/explicit-function-return-type': 0,
