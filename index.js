@@ -15,6 +15,7 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:import/errors',
+    'plugin:import/typescript',
     'plugin:promise/recommended',
     'plugin:prettier/recommended',
     hasMocha && 'plugin:mocha/recommended',
@@ -63,7 +64,6 @@ module.exports = {
     {
       files: ['**.ts', '**.tsx'],
       extends: [
-        'plugin:import/typescript',
         'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
