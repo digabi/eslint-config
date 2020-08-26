@@ -20,17 +20,17 @@ module.exports = {
     hasJest && 'plugin:jest/recommended',
     hasJest && 'plugin:jest/style',
     hasReact && 'plugin:react/recommended',
-    hasReact && 'prettier/react'
+    hasReact && 'prettier/react',
   ].filter(Boolean),
   parserOptions: {
     ecmaVersion: 2020,
-    sourceType: 'module'
+    sourceType: 'module',
   },
   env: {
     browser: true,
     node: true,
     es2020: true,
-    ...(hasMocha && { mocha: true })
+    ...(hasMocha && { mocha: true }),
   },
   plugins: ['prettier', hasMocha && 'mocha', hasJest && 'jest'].filter(Boolean),
   rules: {
@@ -42,17 +42,17 @@ module.exports = {
     ...(hasMocha && {
       'mocha/no-mocha-arrows': 0,
       'mocha/no-setup-in-describe': 0, // This would be nice, but currently it breaks too much existing code.
-      'mocha/no-sibling-hooks': 0
+      'mocha/no-sibling-hooks': 0,
     }),
     ...(hasJest && {
-      'jest/expect-expect': ['error', { assertFunctionNames: ['expect*'] }]
+      'jest/expect-expect': ['error', { assertFunctionNames: ['expect*'] }],
     }),
     ...(hasReact && {
-      'react/prop-types': 0 // We don't use prop-types.
-    })
+      'react/prop-types': 0, // We don't use prop-types.
+    }),
   },
   settings: {
-    ...(hasReact && { react: { version: 'detect' } })
+    ...(hasReact && { react: { version: 'detect' } }),
   },
   overrides: [
     {
@@ -62,11 +62,11 @@ module.exports = {
         'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
-        'prettier/@typescript-eslint'
+        'prettier/@typescript-eslint',
       ],
       parser: '@typescript-eslint/parser',
       parserOptions: {
-        project: './tsconfig.json'
+        project: './tsconfig.json',
       },
       plugins: ['@typescript-eslint'],
       rules: {
@@ -77,8 +77,8 @@ module.exports = {
         '@typescript-eslint/no-var-requires': 0,
         '@typescript-eslint/unbound-method': 0, // We like using libraries like lodash or Ramda, where using "methods" this way is the norm.
         '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }], // allow variables that starts with _
-        '@typescript-eslint/require-await': 0 // allow functions that returns non-promise also. Useful when implementing interfaces with possible promises
-      }
-    }
-  ]
+        '@typescript-eslint/require-await': 0, // allow functions that returns non-promise also. Useful when implementing interfaces with possible promises
+      },
+    },
+  ],
 }
