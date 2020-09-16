@@ -39,6 +39,7 @@ module.exports = {
     'no-duplicate-imports': ['error', { includeExports: true }],
     'no-unused-vars': ['error', { argsIgnorePattern: '^_' }], // allow variables that starts with _
     'import/no-unresolved': 0, // Doesn't work with TypeScript modules, see https://github.com/benmosher/eslint-plugin-import/issues/1120
+    'require-await': 'error',
     ...(hasMocha && {
       'mocha/no-mocha-arrows': 0,
       'mocha/no-setup-in-describe': 0, // This would be nice, but currently it breaks too much existing code.
@@ -77,7 +78,6 @@ module.exports = {
         '@typescript-eslint/no-var-requires': 0,
         '@typescript-eslint/unbound-method': 0, // We like using libraries like lodash or Ramda, where using "methods" this way is the norm.
         '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }], // allow variables that starts with _
-        '@typescript-eslint/require-await': 0, // allow functions that returns non-promise also. Useful when implementing interfaces with possible promises
       },
     },
   ],
