@@ -53,6 +53,7 @@ module.exports = {
       'mocha/no-mocha-arrows': 0,
       'mocha/no-setup-in-describe': 0, // This would be nice, but currently it breaks too much existing code.
       'mocha/no-sibling-hooks': 0,
+      'mocha/no-hooks-for-single-case': 0,
     }),
     ...(hasJest && {
       'jest/expect-expect': ['error', { assertFunctionNames: ['expect*'] }],
