@@ -17,12 +17,11 @@ module.exports = {
     'plugin:import/errors',
     'plugin:import/typescript',
     'plugin:promise/recommended',
-    'plugin:prettier/recommended',
     hasMocha && 'plugin:mocha/recommended',
     hasJest && 'plugin:jest/recommended',
     hasJest && 'plugin:jest/style',
     hasReact && 'plugin:react/recommended',
-    hasReact && 'prettier/react',
+    'plugin:prettier/recommended',
   ].filter(Boolean),
   parserOptions: {
     ecmaVersion: 2020,
@@ -34,7 +33,7 @@ module.exports = {
     es2020: true,
     ...(hasMocha && { mocha: true }),
   },
-  plugins: ['prettier', 'promise', hasMocha && 'mocha', hasJest && 'jest'].filter(Boolean),
+  plugins: ['promise', hasMocha && 'mocha', hasJest && 'jest'].filter(Boolean),
   rules: {
     'array-callback-return': 'error',
     'prefer-object-spread': 'error',
@@ -72,7 +71,6 @@ module.exports = {
         'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
-        'prettier/@typescript-eslint',
       ],
       parser: '@typescript-eslint/parser',
       parserOptions: {
