@@ -78,13 +78,14 @@ module.exports = {
       },
       plugins: ['@typescript-eslint'],
       rules: {
+        'no-unused-vars': 0,
         '@typescript-eslint/explicit-function-return-type': 0,
         '@typescript-eslint/no-explicit-any': 0, // We probably should enable this, but it breaks a lot of code right now (unknown is usually the better choice).
         '@typescript-eslint/no-non-null-assertion': 0, // We use these quite extensively when the compiler isn't smart enough.
         '@typescript-eslint/no-use-before-define': 0,
         '@typescript-eslint/no-var-requires': 0,
         '@typescript-eslint/unbound-method': 0, // We like using libraries like lodash or Ramda, where using "methods" this way is the norm.
-        '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }], // allow variables that starts with _
+        '@typescript-eslint/no-unused-vars': 0,
       },
     },
   ],
