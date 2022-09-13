@@ -5,13 +5,6 @@
 
 version: 2
 updates:
-  - package-ecosystem: 'npm'
-    directory: '/'
-    schedule:
-      interval: 'daily'
-      time: '02:00'
-      timezone: 'Europe/Helsinki'
-    open-pull-requests-limit: 99
   - package-ecosystem: 'github-actions'
     directory: '/'
     schedule:
