@@ -34,15 +34,21 @@ module.exports = {
     ...(hasMocha && { mocha: true }),
   },
   plugins: ['promise', hasMocha && 'mocha', hasJest && 'jest'].filter(Boolean),
+
   rules: {
     'array-callback-return': 'error',
+    'arrow-body-style': ['error', 'as-needed'],
     'prefer-object-spread': 'error',
     'no-duplicate-imports': ['error', { includeExports: true }],
     'no-unused-vars': ['error', { argsIgnorePattern: '^_' }], // allow variables that starts with _
     'import/default': 0,
     'import/named': 0,
     'import/namespace': 0,
-    'import/no-unresolved': 0,
+    'import/no-unresolved':  0,
+    'one-var': ['error', 'never'],
+    'prefer-arrow-callback': ['error'],
+    'prefer-destructuring': ['error', { 'array': false }],
+    'prefer-template': ['error'],
     'promise/avoid-new': 0,
     'promise/catch-or-return': ['error', { allowFinally: true }],
     'promise/no-callback-in-promise': 0,
