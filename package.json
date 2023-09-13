@@ -1,6 +1,6 @@
 {
   "name": "@digabi/eslint-config",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Our shared ESLint config",
   "main": "index.js",
   "repository": "git@github.com:digabi/eslint-config.git",
