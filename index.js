@@ -41,10 +41,26 @@ module.exports = {
     'prefer-object-spread': 'error',
     'no-duplicate-imports': ['error', { includeExports: true }],
     'no-unused-vars': ['error', { argsIgnorePattern: '^_' }], // allow variables that starts with _
+    "no-restricted-imports": ["warn", {
+      "name": "bluebird",
+      "message": "Please use native promises instead."
+    },{
+        "name": "ramda",
+        "message": "Please use lodash or native javascript instead."
+    },
+    {
+      "name": "partial.lenses",
+      "message": "Please use lodash or native javascript instead."
+    },
+    {
+      "name": "moment",
+      "message": "Please use native Date() and date-fns instead."
+    }],
     'import/default': 0,
     'import/named': 0,
     'import/namespace': 0,
     'import/no-unresolved': 0,
+    'import/no-commonjs': ['warn'], // We want to use imports instead
     'one-var': ['error', 'never'],
     'prefer-arrow-callback': ['error'],
     'prefer-destructuring': ['error', { array: false }],
@@ -53,6 +69,7 @@ module.exports = {
     'promise/catch-or-return': ['error', { allowFinally: true }],
     'promise/no-callback-in-promise': 0,
     'promise/no-nesting': 0,
+    'promise/prefer-await-to-then': ['warn'],
     'require-await': 'error',
     ...(hasMocha && {
       'mocha/no-mocha-arrows': 0,
