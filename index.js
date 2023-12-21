@@ -41,21 +41,25 @@ module.exports = {
     'prefer-object-spread': 'error',
     'no-duplicate-imports': ['error', { includeExports: true }],
     'no-unused-vars': ['error', { argsIgnorePattern: '^_' }], // allow variables that starts with _
-    "no-restricted-imports": ["warn", {
-      "name": "bluebird",
-      "message": "Please use native promises instead."
-    },{
-        "name": "ramda",
-        "message": "Please use lodash or native javascript instead."
-    },
-    {
-      "name": "partial.lenses",
-      "message": "Please use lodash or native javascript instead."
-    },
-    {
-      "name": "moment",
-      "message": "Please use native Date() and date-fns instead."
-    }],
+    'no-restricted-imports': [
+      'warn',
+      {
+        name: 'bluebird',
+        message: 'Please use native promises instead.',
+      },
+      {
+        name: 'ramda',
+        message: 'Please use lodash or native javascript instead.',
+      },
+      {
+        name: 'partial.lenses',
+        message: 'Please use lodash or native javascript instead.',
+      },
+      {
+        name: 'moment',
+        message: 'Please use native Date() and date-fns instead.',
+      },
+    ],
     'import/default': 0,
     'import/named': 0,
     'import/namespace': 0,
