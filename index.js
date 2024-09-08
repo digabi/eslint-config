@@ -10,6 +10,7 @@ function hasDependency(module) {
 const hasMocha = hasDependency('eslint-plugin-mocha')
 const hasJest = hasDependency('eslint-plugin-jest')
 const hasReact = hasDependency('eslint-plugin-react')
+const hasReactHooks = hasDependency('eslint-plugin-react-hooks')
 
 module.exports = {
   extends: [
@@ -21,6 +22,8 @@ module.exports = {
     hasJest && 'plugin:jest/recommended',
     hasJest && 'plugin:jest/style',
     hasReact && 'plugin:react/recommended',
+    hasReact && 'plugin:react/jsx-runtime',
+    hasReactHooks && 'plugin:react-hooks/recommended',
     'plugin:prettier/recommended',
   ].filter(Boolean),
   parserOptions: {

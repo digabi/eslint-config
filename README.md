@@ -11,6 +11,7 @@ Add the required dependencies:
 If you're using React, add
 
     $ npm install --save-dev eslint-plugin-react
+    $ npm install --save-dev eslint-plugin-react-hooks
     
 If you're using Mocha, add
 
