@@ -22,7 +22,6 @@ module.exports = {
     hasJest && 'plugin:jest/recommended',
     hasJest && 'plugin:jest/style',
     hasReact && 'plugin:react/recommended',
-    hasReact && 'plugin:react/jsx-runtime',
     hasReactHooks && 'plugin:react-hooks/recommended',
     'plugin:prettier/recommended',
   ].filter(Boolean),
