@@ -82,6 +82,7 @@ module.exports = {
       'mocha/no-setup-in-describe': 0, // This would be nice, but currently it breaks too much existing code.
       'mocha/no-sibling-hooks': 0,
       'mocha/no-hooks-for-single-case': 0,
+      'mocha/no-exclusive-tests': ['error'],
     }),
     ...(hasJest && {
       'jest/expect-expect': ['error', { assertFunctionNames: ['expect*'] }],
