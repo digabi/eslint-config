@@ -1,3 +1,5 @@
+# !!!! Moved to digabi/node-packages repo !!!!
+
 # eslint-config
 
 Shared ESLint config for the digabi project.
